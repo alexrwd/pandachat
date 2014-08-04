@@ -8,22 +8,24 @@
 
 
     <http>
-        <intercept-url pattern="/*" access="ROLE_USER,ROLE_ANONYMOUS"/>
-        <intercept-url pattern="/index*" access="ROLE_USER,ROLE_ANONYMOUS"/>
-        <intercept-url pattern="/add*" access="ROLE_USER"/>
-        <intercept-url pattern="/delete/*" access="ROLE_ADMIN"/>
-        <form-login login-page="/login.jsp" default-target-url="/index" authentication-failure-url="/login.jsp?error=true"/>
+        <intercept-url pattern="/chat" access="ROLE_USER"/>
+        <intercept-url pattern="/**" access="ROLE_USER"/>
+        <intercept-url pattern="/index*" access="ROLE_USER"/>
+        <form-login />
+        <!--<form-login login-page="/login.jsp" default-target-url="/index" authentication-failure-url="/login.jsp?error=true"/>-->
         <logout logout-url="/logout" logout-success-url="/index"/>
-        <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
-        <remember-me/>
+        <!--<anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>-->
+        <!--<remember-me/>-->
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
                 <user name="admin" password="pass" authorities="ROLE_ADMIN,ROLE_USER"/>
-                <user name="user1" password="1111" authorities="ROLE_USER"/>
-                <user name="user2" password="2222" disabled="true" authorities="ROLE_USER"/>
+                <user name="alex" password="Qw3rty" authorities="ROLE_USER"/>
+                <user name="sasha" password="ment1" authorities="ROLE_USER"/>
+                <user name="andrey" password="zhelya1" authorities="ROLE_USER"/>
+                <!--<user name="user2" password="2222" disabled="true" authorities="ROLE_USER"/>-->
             </user-service>
         </authentication-provider>
     </authentication-manager>
